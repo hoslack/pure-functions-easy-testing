@@ -10,35 +10,37 @@ var constantObject = {
 
 // Refactor the following functions into pure functions:
 
-var addOne = function () {
-  constantNumber += 1;
-  return constantNumber;
-};
-
-
-var timesTwo = function () {
-  constantNumber = constantNumber * 2
-  return constantNumber
-};
-
-
-var incrementArray = function (array) {
-  array.forEach(function(x, i) {
-    array[i] =  x + 1;
-  })
-  return array
+function addOne(constantNumber) {
+  return constantNumber +=1;
 }
 
+
+function timesTwo(constantNumber) {
+  return constantNumber * 2;
+}
+
+
+function incrementArray (array) {
+  return array.map(function(val) {
+    return val +1;
+  });
+
+}
+
+
+
 var addNumberArray = function (array, number) {
-  array.push(number);
-  return array;
+  var newArray = array.slice();
+  newArray.push(number)
+  return newArray;
 };
 
+
 var incrementObject = function (object) {
-  Object.keys(object).forEach(function(x) {
-    object[x] = object[x] + 1
+  var newObj = Object.values(object).map(function(val) {
+  return val + 1;
   });
-  return object;
+  return newObj;
 };
 
 module.exports = {
