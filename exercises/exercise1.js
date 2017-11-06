@@ -37,8 +37,9 @@ var addNumberArray = function (array, number) {
 
 
 var incrementObject = function (object) {
-  var newObj = Object.values(object).map(function(val) {
-  return val + 1;
+  var newObj = Object.assign({},object);
+  Object.keys(newObj).forEach(function(x) {
+  newObj[x] = newObj[x]+1;
   });
   return newObj;
 };
